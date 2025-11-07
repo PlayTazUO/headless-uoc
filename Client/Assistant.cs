@@ -14,17 +14,6 @@ namespace Client
     /// </summary>
     public partial class Assistant : Network
     {
-        static Assistant()
-        {
-            Info = new ConnectInfo()
-            {
-                EndPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 2593),
-                Username = "admin",
-                Password = "admin",
-                Seed = 1 
-            };
-        }
-
         public static void Configure()
         {
             Network.OnAttach += Network_OnAttach;
