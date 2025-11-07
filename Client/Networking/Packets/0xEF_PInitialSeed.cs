@@ -25,11 +25,11 @@ public sealed class PInitialSeed : Packet
         Construct?.Invoke(e);
         Version ver = e.Version;
         Packet packet = new PInitialSeed();
-        packet.Stream.Write((int)1);
-        packet.Stream.Write((int)ver.Major);
-        packet.Stream.Write((int)ver.Minor);
-        packet.Stream.Write((int)ver.Build);
-        packet.Stream.Write((int)ver.Revision);
+        packet.Stream.Write(Network.ClientIP.ToUInt32());
+        packet.Stream.Write(ver.Major);
+        packet.Stream.Write(ver.Minor);
+        packet.Stream.Write(ver.Build);
+        packet.Stream.Write(ver.Revision);
         return packet;
     }
     public static void SendBy(NetState state)
