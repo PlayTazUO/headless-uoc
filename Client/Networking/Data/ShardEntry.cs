@@ -1,4 +1,6 @@
-﻿namespace Client.Networking.Data;
+﻿using Client.Networking.Packets;
+
+namespace Client.Networking.Data;
 public struct ShardEntry
 {
     public uint Index { get; }
@@ -14,4 +16,6 @@ public struct ShardEntry
         TimeZone = timeZone;
         Address = address;
     }
+
+    public void SendSelectPacket() => Network.State?.Send(PPlayServer.Instantiate((byte)Index));
 }

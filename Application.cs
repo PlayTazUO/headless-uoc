@@ -14,7 +14,7 @@ namespace Client
         public static Process Process { get; } = Process.GetCurrentProcess();
         public static string Name { get; private set; } = nameof(Client);
         public static Thread? Thread { get; private set; }
-        public static Object? Instance { get; set; }
+        public static Object? Instance { get; set; } = null;
 
         // Intended for debugging purposes
         static Application() => Configure();
